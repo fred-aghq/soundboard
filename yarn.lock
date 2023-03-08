@@ -28,6 +28,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/runtime@npm:^7.20.6":
+  version: 7.21.0
+  resolution: "@babel/runtime@npm:7.21.0"
+  dependencies:
+    regenerator-runtime: ^0.13.11
+  checksum: 7b33e25bfa9e0e1b9e8828bb61b2d32bdd46b41b07ba7cb43319ad08efc6fda8eb89445193e67d6541814627df0ca59122c0ea795e412b99c5183a0540d338ab
+  languageName: node
+  linkType: hard
+
 "@babel/types@npm:^7.8.3":
   version: 7.21.2
   resolution: "@babel/types@npm:7.21.2"
@@ -251,6 +260,13 @@ __metadata:
   version: 2.0.0
   resolution: "@tootallnate/once@npm:2.0.0"
   checksum: ad87447820dd3f24825d2d947ebc03072b20a42bfc96cbafec16bff8bbda6c1a81fcb0be56d5b21968560c5359a0af4038a68ba150c3e1694fe4c109a063bed8
+  languageName: node
+  linkType: hard
+
+"@types/webmidi@npm:^2.0.6":
+  version: 2.0.7
+  resolution: "@types/webmidi@npm:2.0.7"
+  checksum: f2d24c204390bcbfc4601b575728d6a4378b7a35f4c0fa5d4cf778d8360095979d43463d455cb7f57f368598a7b516c9307aa8cf4d791dd027dd115490c97ec8
   languageName: node
   linkType: hard
 
@@ -734,6 +750,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"djipevents@npm:^2.0.7":
+  version: 2.0.7
+  resolution: "djipevents@npm:2.0.7"
+  dependencies:
+    "@babel/runtime": ^7.20.6
+  checksum: 116cb97ac799b8830899369cf64fc2baf5cc0f759ed6d4bdaebff7973a2869a809c1ab090bd3de5eeeeea4c66bff5471ef62c5903b1b2759c4917ce82f35d950
+  languageName: node
+  linkType: hard
+
 "dlv@npm:^1.1.3":
   version: 1.1.3
   resolution: "dlv@npm:1.1.3"
@@ -1183,6 +1208,23 @@ __metadata:
   version: 2.0.0
   resolution: "isexe@npm:2.0.0"
   checksum: 26bf6c5480dda5161c820c5b5c751ae1e766c587b1f951ea3fcfc973bafb7831ae5b54a31a69bd670220e42e99ec154475025a468eae58ea262f813fdc8d1c62
+  languageName: node
+  linkType: hard
+
+"jazz-midi@npm:^1.7.9":
+  version: 1.7.9
+  resolution: "jazz-midi@npm:1.7.9"
+  checksum: 4056bc430c4181a3d7812a365ec73e1e2719c4daf91fbfee7bf863a2e05eacf75f8b9ab1be970a82c58ce7712fcb9bfe6240609d0f023e45a471003941937491
+  languageName: node
+  linkType: hard
+
+"jzz@npm:^1.5.6":
+  version: 1.6.0
+  resolution: "jzz@npm:1.6.0"
+  dependencies:
+    "@types/webmidi": ^2.0.6
+    jazz-midi: ^1.7.9
+  checksum: ae6ef50682324ebde8bf2f34ea9be7693efee92d134d604c0b9f2b92f933d53393732043720ac00c64a5319b1afaffea93880668b037d62254652838ac1b3996
   languageName: node
   linkType: hard
 
@@ -1684,6 +1726,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"regenerator-runtime@npm:^0.13.11":
+  version: 0.13.11
+  resolution: "regenerator-runtime@npm:0.13.11"
+  checksum: 27481628d22a1c4e3ff551096a683b424242a216fee44685467307f14d58020af1e19660bf2e26064de946bad7eff28950eae9f8209d55723e2d9351e632bbb4
+  languageName: node
+  linkType: hard
+
 "resolve@npm:^1.1.7, resolve@npm:^1.22.1":
   version: 1.22.1
   resolution: "resolve@npm:1.22.1"
@@ -1837,6 +1886,7 @@ __metadata:
     vite: ^4.1.0
     vue: ^3.2.45
     vue-router: 4
+    webmidi: ^3.1.4
   languageName: unknown
   linkType: soft
 
@@ -2086,6 +2136,19 @@ __metadata:
     "@vue/server-renderer": 3.2.47
     "@vue/shared": 3.2.47
   checksum: 3b586f61fd2cdfdd24459a946a2831c0f164056993cc005badde4fea10d53e430f1cedf1b62d52a6992b58fe656fc5fc67b32f594a2832dfe440c6db46d6f158
+  languageName: node
+  linkType: hard
+
+"webmidi@npm:^3.1.4":
+  version: 3.1.4
+  resolution: "webmidi@npm:3.1.4"
+  dependencies:
+    djipevents: ^2.0.7
+    jzz: ^1.5.6
+  dependenciesMeta:
+    jzz:
+      optional: true
+  checksum: 1ba66febcc7d8cf6a4a04efc90a76993ce8b7d6cc128cadf44a8b7740830f1aaecb62795cd33892e86b4539f405a5381dcf86d0db818bf240d93de08c8b2e121
   languageName: node
   linkType: hard
 
