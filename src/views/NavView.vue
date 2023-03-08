@@ -7,8 +7,7 @@ import { RouterLink } from 'vue-router'
         <RouterLink to="/">My App</RouterLink>
         </h1>
         <div>
-        <RouterLink to="/about" class="p-4">About</RouterLink>
-        <RouterLink to="/contact" class="p-4">Settings</RouterLink>
+        <RouterLink to="/settings" class="p-4">Settings</RouterLink>
         </div>
     </nav>
 </template>
