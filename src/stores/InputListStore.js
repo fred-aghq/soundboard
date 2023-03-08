@@ -3,25 +3,23 @@ import { WebMidi } from "webmidi";
 
 export const useInputListStore = defineStore({
     id: "deviceList",
-    state: () => ({
-        inputs: [],
-    }),
+    state() {
+        return {
+            inputs: WebMidi.inputs ?? [],
+            currentInput: null,
+        }
+    },
     getters: {
+        getInputs(state) {
+            return this.inputsRaw;
+        },
         inputsRaw(state) {
             return state.inputs;
         }
     },
     actions: {
-        fill() {
-            WebMidi
-            .enable()
-            .then(() => {
-                console.debug("WebMidi enabled!");
-                this.$state.inputs = WebMidi.inputs;
-            })
-            .catch((err) => {
-                console.error("WebMidi could not be enabled.", err);
-            });
+        setCurrentInput(input) {
+            this.currentInput = input;
         },
         // @TODO: add mechanism to allow user to exclude or hide device(s)
 
