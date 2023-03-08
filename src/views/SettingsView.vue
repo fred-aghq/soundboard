@@ -11,12 +11,11 @@ const inputListStore = useInputListStore();
 const inputs = inputListStore.getInputs;
 let selectedDevice = inputListStore.getSelectedDevice;
 
-const updateSelectedInput = (event) => {
+function updateSelectedInput (event) {
     console.log(event);
-    inputListStore.setCurrentInput(event.device);
-    selectedDevice = device;
+    inputListStore.setCurrentInput(event.target.value);
+    selectedDevice = event.target.value;
 };
-
 </script>
 
 <template>
@@ -28,6 +27,6 @@ const updateSelectedInput = (event) => {
         Managing Device: {{ inputListStore.getDeviceName }}
     </PrimaryTitle>
 
-    <InputDropdown @inputSelected="updateSelectedInput" :inputs="inputs" />
+    <InputDropdown @inputSelected="$event => updateSelectedInput($event)" :inputs="inputs" />
 </template>
  

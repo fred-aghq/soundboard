@@ -8,7 +8,7 @@ defineProps({
 
 <template>
     <select @change="$emit('inputSelected', $event)" v-if="inputs.length">
-        <option value="input.name" v-for="input in inputs" :key="input.name">
+        <option v-for="input in inputs" :key="input.name" :value="input.name">
             {{ input.name }}
         </option>
     </select>

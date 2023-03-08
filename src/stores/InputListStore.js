@@ -5,16 +5,29 @@ export const useInputListStore = defineStore({
     id: "deviceList",
     state() {
         return {
-            inputs: WebMidi.inputs ?? [],
+            inputs: [
+                {
+                    id: "test",
+                    name: "test",
+                    manufacturer: "test",
+
+                },
+                {
+                    id: "test2",
+                    name: "test2",
+                    manufacturer: "test",
+
+                }
+            ],
             currentInput: null,
         }
     },
     getters: {
-        getInputs(state) {
+        getInputs() {
             return this.inputsRaw;
         },
         inputsRaw(state) {
-            return state.inputs;
+            return this.inputs;
         }
     },
     actions: {
