@@ -35,7 +35,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["tailwindcss", "virtual:25142e490cd825c87865b2a0f46141622f764c18656e01497835d5e633c4ecedd4f9d15e1c0cff239e248d1eb0f3e6e8ef70546f6e69aeed1958b610170146f4#npm:3.2.7"],\
             ["vite", "virtual:25142e490cd825c87865b2a0f46141622f764c18656e01497835d5e633c4ecedd4f9d15e1c0cff239e248d1eb0f3e6e8ef70546f6e69aeed1958b610170146f4#npm:4.1.4"],\
             ["vue", "npm:3.2.47"],\
-            ["vue-router", "virtual:25142e490cd825c87865b2a0f46141622f764c18656e01497835d5e633c4ecedd4f9d15e1c0cff239e248d1eb0f3e6e8ef70546f6e69aeed1958b610170146f4#npm:4.1.6"]\
+            ["vue-router", "virtual:25142e490cd825c87865b2a0f46141622f764c18656e01497835d5e633c4ecedd4f9d15e1c0cff239e248d1eb0f3e6e8ef70546f6e69aeed1958b610170146f4#npm:4.1.6"],\
+            ["webmidi", "npm:3.1.4"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -64,6 +65,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@babel/parser", "npm:7.21.2"],\
             ["@babel/types", "npm:7.21.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@babel/runtime", [\
+        ["npm:7.21.0", {\
+          "packageLocation": "./.yarn/cache/@babel-runtime-npm-7.21.0-c4ef698c89-7b33e25bfa.zip/node_modules/@babel/runtime/",\
+          "packageDependencies": [\
+            ["@babel/runtime", "npm:7.21.0"],\
+            ["regenerator-runtime", "npm:0.13.11"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -345,6 +356,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@tootallnate-once-npm-2.0.0-e36cf4f140-ad87447820.zip/node_modules/@tootallnate/once/",\
           "packageDependencies": [\
             ["@tootallnate/once", "npm:2.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@types/webmidi", [\
+        ["npm:2.0.7", {\
+          "packageLocation": "./.yarn/cache/@types-webmidi-npm-2.0.7-968739cf16-f2d24c2043.zip/node_modules/@types/webmidi/",\
+          "packageDependencies": [\
+            ["@types/webmidi", "npm:2.0.7"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -932,6 +952,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["djipevents", [\
+        ["npm:2.0.7", {\
+          "packageLocation": "./.yarn/cache/djipevents-npm-2.0.7-2d9f795b80-116cb97ac7.zip/node_modules/djipevents/",\
+          "packageDependencies": [\
+            ["djipevents", "npm:2.0.7"],\
+            ["@babel/runtime", "npm:7.21.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["dlv", [\
         ["npm:1.1.3", {\
           "packageLocation": "./.yarn/cache/dlv-npm-1.1.3-187c903a21-d7381bca22.zip/node_modules/dlv/",\
@@ -1386,6 +1416,26 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/isexe-npm-2.0.0-b58870bd2e-26bf6c5480.zip/node_modules/isexe/",\
           "packageDependencies": [\
             ["isexe", "npm:2.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["jazz-midi", [\
+        ["npm:1.7.9", {\
+          "packageLocation": "./.yarn/unplugged/jazz-midi-npm-1.7.9-55bcb96561/node_modules/jazz-midi/",\
+          "packageDependencies": [\
+            ["jazz-midi", "npm:1.7.9"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["jzz", [\
+        ["npm:1.6.0", {\
+          "packageLocation": "./.yarn/cache/jzz-npm-1.6.0-8a0c41443d-ae6ef50682.zip/node_modules/jzz/",\
+          "packageDependencies": [\
+            ["jzz", "npm:1.6.0"],\
+            ["@types/webmidi", "npm:2.0.7"],\
+            ["jazz-midi", "npm:1.7.9"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -2011,6 +2061,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["regenerator-runtime", [\
+        ["npm:0.13.11", {\
+          "packageLocation": "./.yarn/cache/regenerator-runtime-npm-0.13.11-90bf536060-27481628d2.zip/node_modules/regenerator-runtime/",\
+          "packageDependencies": [\
+            ["regenerator-runtime", "npm:0.13.11"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["resolve", [\
         ["patch:resolve@npm%3A1.22.1#~builtin<compat/resolve>::version=1.22.1&hash=c3c19d", {\
           "packageLocation": "./.yarn/cache/resolve-patch-0c52e0e4f7-5656f4d0be.zip/node_modules/resolve/",\
@@ -2161,7 +2220,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["tailwindcss", "virtual:25142e490cd825c87865b2a0f46141622f764c18656e01497835d5e633c4ecedd4f9d15e1c0cff239e248d1eb0f3e6e8ef70546f6e69aeed1958b610170146f4#npm:3.2.7"],\
             ["vite", "virtual:25142e490cd825c87865b2a0f46141622f764c18656e01497835d5e633c4ecedd4f9d15e1c0cff239e248d1eb0f3e6e8ef70546f6e69aeed1958b610170146f4#npm:4.1.4"],\
             ["vue", "npm:3.2.47"],\
-            ["vue-router", "virtual:25142e490cd825c87865b2a0f46141622f764c18656e01497835d5e633c4ecedd4f9d15e1c0cff239e248d1eb0f3e6e8ef70546f6e69aeed1958b610170146f4#npm:4.1.6"]\
+            ["vue-router", "virtual:25142e490cd825c87865b2a0f46141622f764c18656e01497835d5e633c4ecedd4f9d15e1c0cff239e248d1eb0f3e6e8ef70546f6e69aeed1958b610170146f4#npm:4.1.6"],\
+            ["webmidi", "npm:3.1.4"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -2479,6 +2539,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packagePeers": [\
             "@types/vue",\
             "vue"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["webmidi", [\
+        ["npm:3.1.4", {\
+          "packageLocation": "./.yarn/cache/webmidi-npm-3.1.4-d5e1ceae0d-1ba66febcc.zip/node_modules/webmidi/",\
+          "packageDependencies": [\
+            ["webmidi", "npm:3.1.4"],\
+            ["djipevents", "npm:2.0.7"],\
+            ["jzz", "npm:1.6.0"]\
           ],\
           "linkType": "HARD"\
         }]\

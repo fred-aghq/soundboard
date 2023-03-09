@@ -1,8 +1,12 @@
+<script setup>
+import PrimaryTitle from '../components/Global/atoms/PrimaryTitle.vue';
+</script>
+
 <template>
     <div>
-        <h1 class="text-3xl font-bold underline">
+        <PrimaryTitle>
             Hello world!
-        </h1>
+        </PrimaryTitle>
         <p class="text-xl">
 
         </p>
