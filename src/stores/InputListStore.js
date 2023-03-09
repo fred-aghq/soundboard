@@ -1,38 +1,32 @@
 import { defineStore } from "pinia";
-import { WebMidi } from "webmidi";
+import { reactive } from "vue";
 
 export const useInputListStore = defineStore({
     id: "deviceList",
     state() {
         return {
+            // inputs: WebMidi.inputs,
             inputs: [
                 {
                     id: "test",
-                    name: "test",
-                    manufacturer: "test",
-
+                    name: "focusrite foobar",
+                    manufacturer: "focusrite",
                 },
                 {
                     id: "test2",
                     name: "test2",
-                    manufacturer: "test",
-
+                    manufacturer: "test2",
                 }
             ],
-            currentInput: null,
+            currentInput: '',
         }
     },
     getters: {
-        getInputs() {
-            return this.inputsRaw;
-        },
-        inputsRaw(state) {
-            return this.inputs;
-        }
+
     },
     actions: {
-        setCurrentInput(input) {
-            this.currentInput = input;
+        setCurrentInput(inputName) {
+            this.currentInput = inputName;
         },
         // @TODO: add mechanism to allow user to exclude or hide device(s)
 

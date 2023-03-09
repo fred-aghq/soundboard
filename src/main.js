@@ -4,8 +4,6 @@ import App from '@/App.vue';
 import { createPinia } from 'pinia';
 import router from '@/router/routes.js';
 import { WebMidi } from "webmidi";
-import { useInputListStore } from '@/stores/InputListStore';
-
 
 
 const app = createApp(App);
