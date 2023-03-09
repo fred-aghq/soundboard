@@ -19,6 +19,8 @@ WebMidi
 .then(() => {
     console.debug("WebMidi enabled!");
     console.debug(WebMidi.inputs);
+
+
     app.mount('#app');
 })
 .catch((err) => {
