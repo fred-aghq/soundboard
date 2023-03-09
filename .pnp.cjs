@@ -673,7 +673,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["autoprefixer", "virtual:25142e490cd825c87865b2a0f46141622f764c18656e01497835d5e633c4ecedd4f9d15e1c0cff239e248d1eb0f3e6e8ef70546f6e69aeed1958b610170146f4#npm:10.4.13"],\
             ["@types/postcss", null],\
             ["browserslist", "npm:4.21.5"],\
-            ["caniuse-lite", "npm:1.0.30001462"],\
+            ["caniuse-lite", "npm:1.0.30001464"],\
             ["fraction.js", "npm:4.2.0"],\
             ["normalize-range", "npm:0.1.2"],\
             ["picocolors", "npm:1.0.0"],\
@@ -739,8 +739,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/browserslist-npm-4.21.5-e3b9e9d029-9755986b22.zip/node_modules/browserslist/",\
           "packageDependencies": [\
             ["browserslist", "npm:4.21.5"],\
-            ["caniuse-lite", "npm:1.0.30001462"],\
-            ["electron-to-chromium", "npm:1.4.324"],\
+            ["caniuse-lite", "npm:1.0.30001464"],\
+            ["electron-to-chromium", "npm:1.4.325"],\
             ["node-releases", "npm:2.0.10"],\
             ["update-browserslist-db", "virtual:e3b9e9d029ed690d72cbb29196ba0a23f15b398eeb926347678187be937db870a04cbf984eecc8e0ec9c290158a9cd8607d12f0188665abe039fa4a9051a22ac#npm:1.0.10"]\
           ],\
@@ -784,10 +784,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["caniuse-lite", [\
-        ["npm:1.0.30001462", {\
-          "packageLocation": "./.yarn/cache/caniuse-lite-npm-1.0.30001462-b09e2244de-e4a57d7851.zip/node_modules/caniuse-lite/",\
+        ["npm:1.0.30001464", {\
+          "packageLocation": "./.yarn/cache/caniuse-lite-npm-1.0.30001464-b87014de43-67cdee102c.zip/node_modules/caniuse-lite/",\
           "packageDependencies": [\
-            ["caniuse-lite", "npm:1.0.30001462"]\
+            ["caniuse-lite", "npm:1.0.30001464"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -972,10 +972,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["electron-to-chromium", [\
-        ["npm:1.4.324", {\
-          "packageLocation": "./.yarn/cache/electron-to-chromium-npm-1.4.324-42c65b14ec-06d0d8d27c.zip/node_modules/electron-to-chromium/",\
+        ["npm:1.4.325", {\
+          "packageLocation": "./.yarn/cache/electron-to-chromium-npm-1.4.325-46365c6a57-25c05fd7c9.zip/node_modules/electron-to-chromium/",\
           "packageDependencies": [\
-            ["electron-to-chromium", "npm:1.4.324"]\
+            ["electron-to-chromium", "npm:1.4.325"]\
           ],\
           "linkType": "HARD"\
         }]\
