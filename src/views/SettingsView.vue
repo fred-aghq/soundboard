@@ -8,9 +8,15 @@ import { storeToRefs } from 'pinia';
 const inputListStore = useInputListStore();
 
 
-const { inputs, currentInput } = storeToRefs(inputListStore);
+const { inputs, currentInput, currentInputChannels } = storeToRefs(inputListStore);
 
-function updateSelectedInput (event) {
+console.log(currentInputChannels.value);
+
+currentInputChannels.value.forEach(channel => {
+    console.log(channel.number);
+});
+
+function updateSelectedInput(event) {
     inputListStore.setCurrentInput(event.target.value);
 };
 </script>
@@ -22,10 +28,15 @@ function updateSelectedInput (event) {
 
     <div v-else>
         <PrimaryTitle class="pb-4">
-        Managing Device: {{ currentInput.name }}
-    </PrimaryTitle>
+            Managing Device: {{ currentInput.name }}
+        </PrimaryTitle>
 
-    <InputDropdown @inputSelected="$event => updateSelectedInput($event)" :inputs="inputs" />
+        <InputDropdown @inputSelected="$event => updateSelectedInput($event)" :inputs="inputs" />
+
     </div>
+    <ul >
+            <li v-for="channel of currentInputChannels.value" :key="channel.number">
+                {{ channel.number }}
+            </li>
+        </ul>
 </template>
- 

@@ -24,7 +24,9 @@ export const useInputListStore = defineStore({
         }
     },
     getters: {
-
+        currentInputChannels() {
+            return this.currentInput?.channels;
+        }
     },
     actions: {
         setCurrentInput(inputName) {
@@ -32,7 +34,8 @@ export const useInputListStore = defineStore({
         },
         refresh() {
             this.inputs = WebMidi.inputs;
-        }
+        },
+
         // @TODO: add mechanism to allow user to exclude or hide device(s)
 
         // addDevice(device) {
