@@ -14,11 +14,13 @@ app.use(router);
 app.use(pinia);
 
 // @TODO: this is probably not ideal
-await WebMidi
+WebMidi
 .enable()
+.then(() => {
+    console.debug("WebMidi enabled!");
+    console.debug(WebMidi.inputs);
+    app.mount('#app');
+})
 .catch((err) => {
     console.error("WebMidi could not be enabled.", err);
 });
-
-console.debug("WebMidi enabled!");
-app.mount('#app');
