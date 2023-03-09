@@ -18,7 +18,9 @@ export const useInputListStore = defineStore({
             //         manufacturer: "test2",
             //     }
             // ],
-            currentInput: '',
+            currentInput: WebMidi.inputs.length > 0 
+                ? WebMidi.inputs[0] 
+                : null,
         }
     },
     getters: {

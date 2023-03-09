@@ -12,7 +12,6 @@ const { inputs, currentInput } = storeToRefs(inputListStore);
 
 function updateSelectedInput (event) {
     inputListStore.setCurrentInput(event.target.value);
-    console.log(currentInput);
 };
 </script>
 
@@ -21,10 +20,12 @@ function updateSelectedInput (event) {
         No devices were found.
     </p>
 
-    <PrimaryTitle class="pb-4">
+    <div v-else>
+        <PrimaryTitle class="pb-4">
         Managing Device: {{ currentInput.name }}
     </PrimaryTitle>
 
     <InputDropdown @inputSelected="$event => updateSelectedInput($event)" :inputs="inputs" />
+    </div>
 </template>
  
