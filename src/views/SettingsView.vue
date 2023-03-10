@@ -1,20 +1,15 @@
 
 <script setup>
-import InputDropdown from '@/components/Devices/InputDropdown.vue';
+import InputDropdown from '@/components/Devices/molecules/InputDropdown.vue';
 import { useInputListStore } from '@/stores/inputListStore.js';
 import PrimaryTitle from '@/components/Global/atoms/PrimaryTitle.vue';
 import { storeToRefs } from 'pinia';
+import ActivityLight from '@/components/Devices/atoms/ActivityLight.vue';
 
 const inputListStore = useInputListStore();
 
 
 const { inputs, currentInput, currentInputChannels } = storeToRefs(inputListStore);
-
-console.log(currentInputChannels.value);
-
-currentInputChannels.value.forEach(channel => {
-    console.log(channel.number);
-});
 
 function updateSelectedInput(event) {
     inputListStore.setCurrentInput(event.target.value);
@@ -31,7 +26,12 @@ function updateSelectedInput(event) {
             Managing Device: {{ currentInput.name }}
         </PrimaryTitle>
 
-        <InputDropdown @inputSelected="$event => updateSelectedInput($event)" :inputs="inputs" />
+        <p>
+            <InputDropdown @inputSelected="$event => updateSelectedInput($event)" :inputs="inputs" />
+        </p>
 
+        <p>
+            MIDI activity: <ActivityLight class="h-36 w-24 border border-2 border-gray-400"/>
+        </p>
     </div>
 </template>
