@@ -4,8 +4,7 @@ import App from '@/App.vue';
 import { createPinia } from 'pinia';
 import router from '@/router/routes.js';
 import { WebMidi } from "webmidi";
-import useActivityStore from './stores/activityStore';
-import { useInputListStore } from './stores/inputListStore';
+import { useInputListStore }  from '@/stores/InputListStore.js';
 
 
 
@@ -18,10 +17,11 @@ WebMidi
         const app = createApp(App);
 
         const pinia = createPinia();
-
+        
         app.use(router);
         app.use(pinia);
-
+        
+        useInputListStore();
         app.mount('#app');
     })
     .catch((err) => {

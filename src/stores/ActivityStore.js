@@ -5,20 +5,20 @@ const useActivityStore = defineStore({
     state() {
         return {
             activity: false,
-            note: '',
+            activeNote: '',
         }
     },
     actions: {
         setActive(note) {
             this.$state = {
-                note: note,
+                activeNote: note,
                 activity: true,
             };
         },
         setInactive() {
             this.$state = {
                 activity: false,
-                note: '',
+                activeNote: '',
             }
         },
     },

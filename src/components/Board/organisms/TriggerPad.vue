@@ -1,4 +1,7 @@
 <script setup>
+import useActivityStore from '@/stores/activityStore';
+import { storeToRefs } from 'pinia';
+
 defineProps({
     label: {
         type: String,
@@ -13,9 +16,15 @@ defineProps({
         required: true
     }
 });
+
+const { activeNote } = storeToRefs(useActivityStore());
+
 </script>
 <template>
-<div class="min-w-sm space-y-4 p-6 border border-slate-600">
+<div :class="{
+    'min-w-sm space-y-4 p-6 border border-slate-600': true,
+    'bg-green-500': activeNote === note
+}">
     <h1 class="grid grid-cols-1 text-center border-b-2">{{ label }}</h1>
     <div class="grid grid-cols-1">
         <button>Play Sound</button>
