@@ -1,34 +1,29 @@
-import useActivityStore from "@/stores/activityStore.js";
-import { useInputListStore } from "@/stores/InputListStore.js";
+import useActivityStore from "@/stores/ActivityStore.js";
+import useMappedNotesStore from "@/stores/MappedNotesStore.js";
 
 const useOnNoteOn = input => {
     const activityStore = useActivityStore();
+    const mappedNotesStore = useMappedNotesStore();
 
     input.addListener("noteon", (e) => {
-        console.debug("ON: " + e.note.identifier);
-        activityStore.setActive(e.note.identifier);
+        const note = e.note.identifier;
 
-        let filename;
+        console.debug("ON: " + note);
+        activityStore.setActive(note);
 
-        switch (e.note.identifier) {
-            case "B1":
-                filename = "694294.mp3";
-                break;
-            case "C2":
-                filename = "694296.mp3";
-                break;
-            case "C#2":
-                filename = "694298.mp3";
-                break;
-            case "D2":
-                filename = "694309.mp3";
-                break;
-            default:
-                filename = null;
-                break;
+        let map = mappedNotesStore.mappedNotes.filter(map => {
+            if(map.note === note) {
+                return map;
+            }
+        });
+
+        if (!map.length) {
+            return;
         }
 
-        filename && new Audio('/assets/sounds/' + filename)
+        map = map[0];
+
+        map.filename && new Audio('/assets/sounds/' + map.filename)
             .play();
     });
 

@@ -5,7 +5,6 @@ import { useInputListStore } from '@/stores/inputListStore.js';
 import PrimaryTitle from '@/components/Global/atoms/PrimaryTitle.vue';
 import { storeToRefs } from 'pinia';
 import ActivityLight from '@/components/Devices/atoms/ActivityLight.vue';
-import useActivityStore from '@/stores/activityStore';
 
 const inputListStore = useInputListStore();
 
