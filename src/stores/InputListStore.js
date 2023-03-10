@@ -27,8 +27,7 @@ export const useInputListStore = defineStore({
     },
     actions: {
         setCurrentInput(inputName) {
-            this.currentInput.removeListener("noteon");
-            this.currentInput.removeListener("noteoff");
+            this.currentInput.removeListener();
 
             const input = WebMidi.getInputByName(inputName);
 
