@@ -11,17 +11,17 @@ const useOnNoteOn = input => {
         let filename;
 
         switch (e.note.identifier) {
-            case "B1":
-                filename = "694294.mp3";
+            case "C3":
+                filename = "808.wav";
                 break;
-            case "C2":
-                filename = "694296.mp3";
+            case "D3":
+                filename = "Kick.wav";
                 break;
-            case "C#2":
-                filename = "694298.mp3";
+            case "E3":
+                filename = "Snare 1.wav";
                 break;
-            case "D2":
-                filename = "694309.mp3";
+            case "F3":
+                filename = "Hat Closer 1.wav";
                 break;
             default:
                 filename = null;
