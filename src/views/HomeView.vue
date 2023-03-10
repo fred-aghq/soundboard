@@ -19,7 +19,7 @@ console.log(mappedNotes.value);
                 :key="_" 
                 :label="note.label" 
                 :filename="note.filename"
-                :note="note.note" 
+                :note="note.note"
             />
         </div>
     </div>
