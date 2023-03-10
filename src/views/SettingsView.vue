@@ -8,35 +8,30 @@ import { storeToRefs } from 'pinia';
 const inputListStore = useInputListStore();
 
 
-const { inputs, currentInput } = storeToRefs(inputListStore);
+const { inputs, currentInput, currentInputChannels } = storeToRefs(inputListStore);
 
-function updateSelectedInput (event) {
+console.log(currentInputChannels.value);
+
+currentInputChannels.value.forEach(channel => {
+    console.log(channel.number);
+});
+
+function updateSelectedInput(event) {
     inputListStore.setCurrentInput(event.target.value);
-    console.log(currentInput);
-};
-
-const refresh = () => {
-    console.debug("refresh");
-    inputListStore.refresh();
 };
 </script>
 
 <template>
-    <button class="p-4 border border-gray-500" @click="refresh">
-        Refresh
-    </button>
     <p v-if="!inputs.length">
         No devices were found.
     </p>
 
-    <PrimaryTitle class="pb-4">
-        Managing Device: {{ currentInput }}
-    </PrimaryTitle>
+    <div v-else>
+        <PrimaryTitle class="pb-4">
+            Managing Device: {{ currentInput.name }}
+        </PrimaryTitle>
 
-    <InputDropdown @inputSelected="$event => updateSelectedInput($event)" :inputs="inputs" />
+        <InputDropdown @inputSelected="$event => updateSelectedInput($event)" :inputs="inputs" />
 
-    <pre>
-        {{  currentInput.id }}
-    </pre>
+    </div>
 </template>
- 
