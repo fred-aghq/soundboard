@@ -23,14 +23,13 @@ export const useInputListStore = defineStore({
         }
     },
     getters: {
-        currentInputChannels: state => {
-            return state.currentInput?.channels;
-        }
+        currentInputChannels: state => state.currentInput.channels,
     },
     actions: {
         setCurrentInput(inputName) {
             // @TODO: this only works when changing the input, not when the default input is initialized
             this.currentInput.removeListener("noteon");
+            this.currentInput.removeListener("noteoff");
 
             const input = WebMidi.getInputByName(inputName);
 
@@ -43,21 +42,5 @@ export const useInputListStore = defineStore({
         },
 
         // @TODO: add mechanism to allow user to exclude or hide device(s)
-
-        // addDevice(device) {
-        //     this.inputs.push(device);
-        // },
-        // removeDevice(device) {
-        //     this.inputs = this.inputs.filter((d) => d.id !== device.id);
-        // },
-        // updateDevice(device) {
-        //     this.inputs = this.inputs.map((d) => {
-        //         if (d.id === device.id) {
-        //             return device;
-        //         }
-        //         return d;
-        //     }
-        //     );
-        // }
     }
 });
