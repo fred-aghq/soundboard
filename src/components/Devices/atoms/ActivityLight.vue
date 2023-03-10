@@ -2,13 +2,13 @@
 import useActivityStore from '@/stores/activityStore.js';
 import { storeToRefs } from 'pinia';
 
-const { activity, note } = storeToRefs(useActivityStore());
+const { activity, activeNote } = storeToRefs(useActivityStore());
 </script>
 
 <template>
     <div :class="{
         'bg-green-400': activity,
     }">
-        {{  note }}
+        {{  activeNote }}
     </div>
 </template>

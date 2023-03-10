@@ -4,8 +4,13 @@ import useMappedNotesStore from '@/stores/mappedNotesStore.js';
 import { storeToRefs } from 'pinia';
 import TriggerPad from '@/components/Board/organisms/TriggerPad.vue';
 
-const { mappedNotes } = storeToRefs(useMappedNotesStore());
-console.log(mappedNotes.value);
+const mappedNotesStore = useMappedNotesStore();
+const { mappedNotes } = storeToRefs(mappedNotesStore);
+
+const removeSound = (event) => {
+    console.debug(event.note);
+    mappedNotesStore.removeMap(event.note);
+};
 </script>
 
 <template>
@@ -20,6 +25,7 @@ console.log(mappedNotes.value);
                 :label="note.label" 
                 :filename="note.filename"
                 :note="note.note"
+                @removeSound="removeSound"
             />
         </div>
     </div>

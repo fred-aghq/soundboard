@@ -19,10 +19,12 @@ defineProps({
 
 const { activeNote } = storeToRefs(useActivityStore());
 
+defineEmits(['removeSound']);
+
 </script>
 <template>
 <div :class="{
-    'min-w-sm space-y-4 p-6 border border-slate-600': true,
+    'grid min-w-sm space-y-4 p-6 border border-slate-600': true,
     'bg-green-500': activeNote === note
 }">
     <h1 class="grid grid-cols-1 text-center border-b-2">{{ label }}</h1>
@@ -40,6 +42,9 @@ const { activeNote } = storeToRefs(useActivityStore());
                 Sound ({{ filename }})
             </span>
         </button>
+    </div>
+    <div class="grid grid-cols-1">
+        <button @click="$emit('removeSound', {note: note})">Remove</button>
     </div>
 </div>
 </template>

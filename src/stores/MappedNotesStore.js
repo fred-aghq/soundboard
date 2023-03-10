@@ -29,7 +29,15 @@ const useMappedNotesStore = defineStore({
         }
     },
     actions: {
+        removeMap(note) {
+            const filtered = this.mappedNotes = this.mappedNotes.filter(map => {
+                if (map.note !== note) {
+                    return map;
+                }
+            });
 
+            this.$state.mappedNotes = filtered;
+        }
     },
 });
 
