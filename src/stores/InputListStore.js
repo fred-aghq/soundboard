@@ -19,7 +19,7 @@ export const useInputListStore = defineStore({
     state() {
         return {
             inputs: WebMidi.inputs,
-            currentInput: initDefaultInput(),
+            currentInput: initDefaultInput(), // @TODO: this should perhaps take place outside of the store
         }
     },
     getters: {
@@ -27,7 +27,6 @@ export const useInputListStore = defineStore({
     },
     actions: {
         setCurrentInput(inputName) {
-            // @TODO: this only works when changing the input, not when the default input is initialized
             this.currentInput.removeListener("noteon");
             this.currentInput.removeListener("noteoff");
 
