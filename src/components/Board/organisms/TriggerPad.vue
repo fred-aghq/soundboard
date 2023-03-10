@@ -15,8 +15,8 @@ defineProps({
 });
 </script>
 <template>
-<div class="min-w-sm space-y-4 p-6">
-    <h1 class="grid grid-cols-1 text-center">{{ label }}</h1>
+<div class="min-w-sm space-y-4 p-6 border border-slate-600">
+    <h1 class="grid grid-cols-1 text-center border-b-2">{{ label }}</h1>
     <div class="grid grid-cols-1">
         <button>Play Sound</button>
     </div>
