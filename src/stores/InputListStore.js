@@ -5,7 +5,7 @@ import useActivityStore from "./activityStore";
 import useOnNoteOn from "@/listeners/onNoteOn.js";
 
 const setupInput = input => {
-    const onNoteOn = useOnNoteOn();
+
     onNoteOn(input);
 };
 
