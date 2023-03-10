@@ -34,9 +34,4 @@ function updateSelectedInput(event) {
         <InputDropdown @inputSelected="$event => updateSelectedInput($event)" :inputs="inputs" />
 
     </div>
-    <ul >
-            <li v-for="channel of currentInputChannels.value" :key="channel.number">
-                {{ channel.number }}
-            </li>
-        </ul>
 </template>
