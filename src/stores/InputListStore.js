@@ -1,39 +1,45 @@
+import onNoteOn from "@/listeners/onNoteOn.js";
 import { defineStore } from "pinia";
 import { WebMidi } from "webmidi";
+
+const initDefaultInput = () => {
+    if (WebMidi.inputs.length > 0) {
+        const input = WebMidi.inputs[0];
+
+        onNoteOn(input);
+
+        return input;
+    }
+
+    return null;
+}
 
 export const useInputListStore = defineStore({
     id: "deviceList",
     state() {
         return {
             inputs: WebMidi.inputs,
-            // inputs: [
-            //     {
-            //         id: "test",
-            //         name: "focusrite foobar",
-            //         manufacturer: "focusrite",
-            //     },
-            //     {
-            //         id: "test2",
-            //         name: "test2",
-            //         manufacturer: "test2",
-            //     }
-            // ],
-            currentInput: WebMidi.inputs.length > 0 
-                ? WebMidi.inputs[0] 
-                : null,
+            currentInput: initDefaultInput(),
         }
     },
     getters: {
-        currentInputChannels() {
-            return this.currentInput?.channels;
+        currentInputChannels: state => {
+            return state.currentInput?.channels;
         }
     },
     actions: {
         setCurrentInput(inputName) {
-            this.currentInput = WebMidi.getInputByName(inputName);
+            // @TODO: this only works when changing the input, not when the default input is initialized
+            this.currentInput.removeListener("noteon");
+
+            const input = WebMidi.getInputByName(inputName);
+
+            onNoteOn(input);
+
+            this.$state.currentInput = input;
         },
         refresh() {
-            this.inputs = WebMidi.inputs;
+            this.$state.inputs = WebMidi.inputs;
         },
 
         // @TODO: add mechanism to allow user to exclude or hide device(s)
