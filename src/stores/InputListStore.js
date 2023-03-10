@@ -1,12 +1,19 @@
-import onNoteOn from "@/listeners/onNoteOn.js";
+import onNoteOn from "@/listeners/OnNoteOn.js";
 import { defineStore } from "pinia";
 import { WebMidi } from "webmidi";
+import useActivityStore from "./activityStore";
+import useOnNoteOn from "@/listeners/onNoteOn.js";
+
+const setupInput = input => {
+    const onNoteOn = useOnNoteOn();
+    onNoteOn(input);
+};
 
 const initDefaultInput = () => {
     if (WebMidi.inputs.length > 0) {
         const input = WebMidi.inputs[0];
 
-        onNoteOn(input);
+        setupInput(input);
 
         return input;
     }
@@ -23,15 +30,17 @@ export const useInputListStore = defineStore({
         }
     },
     getters: {
-        currentInputChannels: state => state.currentInput.channels,
+        
     },
     actions: {
         setCurrentInput(inputName) {
             this.currentInput.removeListener();
+            const activityStore = useActivityStore();
+            activityStore.$reset();
 
             const input = WebMidi.getInputByName(inputName);
 
-            onNoteOn(input);
+            setupInput(input);
 
             this.$state.currentInput = input;
         },

@@ -22,18 +22,6 @@ WebMidi
         app.use(router);
         app.use(pinia);
 
-        const activityStore = useActivityStore();
-        const deviceInputList = useInputListStore();
-
-        // @TODO: definitely refactor this stuff out of main.js
-        deviceInputList.currentInput.addListener("noteon", (e) => {
-            activityStore.setActive(e.note.identifier);
-        });
-
-        deviceInputList.currentInput.addListener("noteoff", (e) => {
-            activityStore.setInactive();
-        });
-
         app.mount('#app');
     })
     .catch((err) => {

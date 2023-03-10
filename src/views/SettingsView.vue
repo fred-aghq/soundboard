@@ -5,11 +5,12 @@ import { useInputListStore } from '@/stores/inputListStore.js';
 import PrimaryTitle from '@/components/Global/atoms/PrimaryTitle.vue';
 import { storeToRefs } from 'pinia';
 import ActivityLight from '@/components/Devices/atoms/ActivityLight.vue';
+import useActivityStore from '@/stores/activityStore';
 
 const inputListStore = useInputListStore();
 
 
-const { inputs, currentInput, currentInputChannels } = storeToRefs(inputListStore);
+const { inputs, currentInput } = storeToRefs(inputListStore);
 
 function updateSelectedInput(event) {
     inputListStore.setCurrentInput(event.target.value);
@@ -23,7 +24,7 @@ function updateSelectedInput(event) {
 
     <div v-else>
         <PrimaryTitle class="pb-4">
-            Managing Device: {{ currentInput.name }}
+            Managing Device: <span class="text-sm">{{ currentInput.name }}</span>
         </PrimaryTitle>
 
         <p>
