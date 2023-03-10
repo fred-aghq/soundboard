@@ -16,7 +16,7 @@ const removeSound = (event) => {
 <template>
     <div>
         <PrimaryTitle>
-            Hello world!
+            Soundboard
         </PrimaryTitle>
         <div class="grid grid-cols-4 grid-rows-4">
             <TriggerPad 
