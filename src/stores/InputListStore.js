@@ -30,7 +30,7 @@ export const useInputListStore = defineStore({
         }
     },
     getters: {
-        
+        inputCount: state => state.inputs.length,
     },
     actions: {
         setCurrentInput(inputName) {

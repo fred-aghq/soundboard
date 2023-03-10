@@ -9,15 +9,11 @@ import ActivityLight from '@/components/Devices/atoms/ActivityLight.vue';
 const inputListStore = useInputListStore();
 
 
-const { inputs, currentInput } = storeToRefs(inputListStore);
-
-function updateSelectedInput(event) {
-    inputListStore.setCurrentInput(event.target.value);
-};
+const { currentInput, inputCount } = storeToRefs(inputListStore);
 </script>
 
 <template>
-    <p v-if="!inputs.length">
+    <p v-if="!inputCount">
         No devices were found.
     </p>
 
@@ -27,7 +23,7 @@ function updateSelectedInput(event) {
         </PrimaryTitle>
 
         <p>
-            <InputDropdown @inputSelected="$event => updateSelectedInput($event)" :inputs="inputs" />
+            <InputDropdown />
         </p>
 
         <p>
