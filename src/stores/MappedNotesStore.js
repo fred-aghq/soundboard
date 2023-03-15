@@ -7,25 +7,32 @@ const useMappedNotesStore = defineStore({
             mappedNotes: [
                 {
                     label: "808",
-                    note: "C3",
+                    note: "C2",
                     filename: "808.wav",
                 },
                 {
                     label: "Kick",
-                    note: "D3",
+                    note: "D2",
                     filename: "Kick.wav",
                 },
                 {
                     label: "Snare",
-                    note: "E3",
+                    note: "E2",
                     filename: "Snare 1.wav",
                 },
                 {
                     label: "Hat Closed",
-                    note: "F3",
+                    note: "F2",
                     filename: "Hat Closer 1.wav",
                 }
             ],
+        }
+    },
+    getters: {
+        getMappingByNote: state => {
+            return note => {
+                state.find(map => map.note === note)
+            }
         }
     },
     actions: {
@@ -37,6 +44,12 @@ const useMappedNotesStore = defineStore({
             });
 
             this.$state.mappedNotes = filtered;
+        },
+        addMap(note, oldNote = '') {
+            console.debug("addMap", note);
+                      
+
+
         }
     },
 });

@@ -1,6 +1,7 @@
 <script setup>
 import useActivityStore from '@/stores/activityStore';
 import { storeToRefs } from 'pinia';
+import MidiLearnButton from '@/components/Board/molecules/MidiLearnButton.vue';
 
 defineProps({
     label: {
@@ -32,11 +33,9 @@ defineEmits(['removeSound']);
         <button>Play Sound</button>
     </div>
     <div class="grid grid-cols-2 divide-x">
-        <button>
-            <span class="text-xs">
-                MIDI ({{ note }})
-            </span>
-        </button>
+        <MidiLearnButton>
+            MIDI ({{ note }})
+        </MidiLearnButton>
         <button>
             <span class="text-xs">
                 Sound ({{ filename }})
