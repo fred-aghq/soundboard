@@ -8,7 +8,7 @@ const { activity, activeNote } = storeToRefs(useActivityStore());
 <template>
     <div :class="{
         'flex items-center justify-center': true,
-        'light:bg-green-400 dark:bg-green-800': activity,
+        'bg-green-400 dark:bg-green-800': activity,
     }">
         {{ activeNote }}
     </div>
