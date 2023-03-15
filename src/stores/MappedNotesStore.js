@@ -1,5 +1,9 @@
 import { defineStore } from "pinia";
 
+const findMap = (state, note) => {
+    return state.mappedNotes.find(map => map.note === note);
+}
+
 const useMappedNotesStore = defineStore({
     id: "mappedNotes",
     state() {
@@ -31,7 +35,7 @@ const useMappedNotesStore = defineStore({
     getters: {
         getMappingByNote: state => {
             return note => {
-                state.find(map => map.note === note)
+                findMap(state, note);
             }
         }
     },
@@ -47,9 +51,30 @@ const useMappedNotesStore = defineStore({
         },
         addMap(note, oldNote = '') {
             console.debug("addMap", note);
-                      
+            console.debug("old note: ", oldNote);
+            
+            let oldMap = null;
+            
+            if (oldNote.length > 1) {
+                oldMap = findMap(this.$state, oldNote);
+                console.debug(oldMap);
+                
+                if (oldMap) {
+                    console.debug("found old map: ", oldMap.note, oldMap.filename);
+                    this.removeMap(oldNote);
+                }
+            }
 
+            const label = oldMap?.label ?? 'New mapped';
+            const filename = oldMap?.filename ?? 'Hat Closer 1.wav';
 
+            const newMap = {
+                label: label,
+                note: note,
+                filename: filename,
+            };
+
+            this.$state.mappedNotes.push(newMap);
         }
     },
 });

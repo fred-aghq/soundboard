@@ -33,7 +33,7 @@ defineEmits(['removeSound']);
         <button>Play Sound</button>
     </div>
     <div class="grid grid-cols-2 divide-x">
-        <MidiLearnButton>
+        <MidiLearnButton :currentMappedNote=note>
             MIDI ({{ note }})
         </MidiLearnButton>
         <button>

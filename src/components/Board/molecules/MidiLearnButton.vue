@@ -4,15 +4,22 @@ import useActivityStore from '@/stores/ActivityStore.js';
 import { storeToRefs } from 'pinia';
 import useMappedNotesStore from '@/stores/MappedNotesStore.js';
 
+const props = defineProps({
+    currentMappedNote: {
+        type: String,
+        required: false,
+        default: null,
+    }
+});
+
 function learnInput(e) {
-    console.debug('Learn input');
     const { currentInput } = storeToRefs(useInputListStore());
+    console.debug('Waiting to learn input', e);
 
     const learnInputHandler = (e) => {
-        console.debug('Waiting to learn input', e);
         const { activity, activeNote } = useActivityStore();
 
-        useMappedNotesStore().addMap(e.note.identifier);
+        useMappedNotesStore().addMap(e.note.identifier, props.currentMappedNote ?? '');
     };
 
     currentInput.value.addListener('noteon', learnInputHandler, { remaining: 1 });
