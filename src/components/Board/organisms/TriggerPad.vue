@@ -26,7 +26,7 @@ defineEmits(['removeSound']);
 <template>
 <div :class="{
     'grid min-w-sm space-y-4 p-6 border border-slate-600': true,
-    'light:bg-green-500 dark:bg-green-800': activeNote === note
+    'bg-green-500 dark:bg-green-800': activeNote === note
 }">
     <h1 class="grid grid-cols-1 text-center border-b-2">{{ label }}</h1>
     <div class="grid grid-cols-1">
@@ -34,7 +34,7 @@ defineEmits(['removeSound']);
     </div>
     <div class="grid grid-cols-2 divide-x">
         <MidiLearnButton :currentMappedNote=note>
-            MIDI ({{ note }})
+            Map [{{  note }}]
         </MidiLearnButton>
         <button>
             <span class="text-xs">

@@ -3,6 +3,7 @@ import { useInputListStore } from '@/stores/InputListStore.js';
 import useActivityStore from '@/stores/ActivityStore.js';
 import { storeToRefs } from 'pinia';
 import useMappedNotesStore from '@/stores/MappedNotesStore.js';
+import { ref } from 'vue';
 
 const props = defineProps({
     currentMappedNote: {
@@ -12,14 +13,19 @@ const props = defineProps({
     }
 });
 
+const awaitingInput = ref(false);
+
 function learnInput(e) {
     const { currentInput } = storeToRefs(useInputListStore());
     console.debug('Waiting to learn input', e);
+    awaitingInput.value = true;
 
     const learnInputHandler = (e) => {
         const { activity, activeNote } = useActivityStore();
 
         useMappedNotesStore().addMap(e.note.identifier, props.currentMappedNote ?? '');
+
+        awaitingInput.value = false;
     };
 
     currentInput.value.addListener('noteon', learnInputHandler, { remaining: 1 });
@@ -27,7 +33,7 @@ function learnInput(e) {
 
 </script>
 <template>
-    <button @click.prevent="learnInput">
+    <button :class="{ 'dark: bg-red-800 bg-red-400': awaitingInput }" @click.prevent="learnInput">
         <slot></slot>
     </button>
 </template>
