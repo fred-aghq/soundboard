@@ -50,6 +50,8 @@ const useMappedNotesStore = defineStore({
             this.$state.mappedNotes = filtered;
         },
         addMap(note, oldNote = '') {
+            // @FIXME: this removes and re-adds the map if the note is changed
+            // so it gets pushed to the end of the array
             console.debug("addMap", note);
             console.debug("old note: ", oldNote);
             
