@@ -30,6 +30,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@vitejs/plugin-vue", "virtual:25142e490cd825c87865b2a0f46141622f764c18656e01497835d5e633c4ecedd4f9d15e1c0cff239e248d1eb0f3e6e8ef70546f6e69aeed1958b610170146f4#npm:4.0.0"],\
             ["autoprefixer", "virtual:25142e490cd825c87865b2a0f46141622f764c18656e01497835d5e633c4ecedd4f9d15e1c0cff239e248d1eb0f3e6e8ef70546f6e69aeed1958b610170146f4#npm:10.4.13"],\
+            ["lodash", "npm:4.17.21"],\
             ["pinia", "virtual:25142e490cd825c87865b2a0f46141622f764c18656e01497835d5e633c4ecedd4f9d15e1c0cff239e248d1eb0f3e6e8ef70546f6e69aeed1958b610170146f4#npm:2.0.33"],\
             ["postcss", "npm:8.4.21"],\
             ["tailwindcss", "virtual:25142e490cd825c87865b2a0f46141622f764c18656e01497835d5e633c4ecedd4f9d15e1c0cff239e248d1eb0f3e6e8ef70546f6e69aeed1958b610170146f4#npm:3.2.7"],\
@@ -1566,6 +1567,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["lodash", [\
+        ["npm:4.17.21", {\
+          "packageLocation": "./.yarn/cache/lodash-npm-4.17.21-6382451519-eb835a2e51.zip/node_modules/lodash/",\
+          "packageDependencies": [\
+            ["lodash", "npm:4.17.21"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["lru-cache", [\
         ["npm:6.0.0", {\
           "packageLocation": "./.yarn/cache/lru-cache-npm-6.0.0-b4c8668fe1-f97f499f89.zip/node_modules/lru-cache/",\
@@ -2332,6 +2342,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["soundboard", "workspace:."],\
             ["@vitejs/plugin-vue", "virtual:25142e490cd825c87865b2a0f46141622f764c18656e01497835d5e633c4ecedd4f9d15e1c0cff239e248d1eb0f3e6e8ef70546f6e69aeed1958b610170146f4#npm:4.0.0"],\
             ["autoprefixer", "virtual:25142e490cd825c87865b2a0f46141622f764c18656e01497835d5e633c4ecedd4f9d15e1c0cff239e248d1eb0f3e6e8ef70546f6e69aeed1958b610170146f4#npm:10.4.13"],\
+            ["lodash", "npm:4.17.21"],\
             ["pinia", "virtual:25142e490cd825c87865b2a0f46141622f764c18656e01497835d5e633c4ecedd4f9d15e1c0cff239e248d1eb0f3e6e8ef70546f6e69aeed1958b610170146f4#npm:2.0.33"],\
             ["postcss", "npm:8.4.21"],\
             ["tailwindcss", "virtual:25142e490cd825c87865b2a0f46141622f764c18656e01497835d5e633c4ecedd4f9d15e1c0cff239e248d1eb0f3e6e8ef70546f6e69aeed1958b610170146f4#npm:3.2.7"],\
