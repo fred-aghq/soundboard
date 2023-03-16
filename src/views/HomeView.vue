@@ -5,7 +5,7 @@ import { storeToRefs } from 'pinia';
 import TriggerPad from '@/components/Board/organisms/TriggerPad.vue';
 
 const mappedNotesStore = useMappedNotesStore();
-const { mappedNotes } = storeToRefs(mappedNotesStore);
+const { mappedNotes, getMapsSortedByOrder } = storeToRefs(mappedNotesStore);
 
 const removeSound = (event) => {
     console.debug(event.note);
@@ -20,7 +20,7 @@ const removeSound = (event) => {
         </PrimaryTitle>
         <div class="grid grid-cols-4 grid-rows-4">
             <TriggerPad 
-                v-for="(note, _) in mappedNotes" 
+                v-for="(note, _) in getMapsSortedByOrder"
                 :key="_" 
                 :label="note.label" 
                 :filename="note.filename"
