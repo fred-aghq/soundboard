@@ -1,82 +1,81 @@
 import { defineStore } from "pinia";
+import { sortBy } from 'lodash';
 
 const findMap = (state, note) => {
-    return state.mappedNotes.find(map => map.note === note);
+    console.log(state.mappedNotes[note])
+    return state.mappedNotes[note];
+}
+
+const mapExists = (state, note) => {
+    return state.mappedNotes[note] !== undefined;
 }
 
 const useMappedNotesStore = defineStore({
     id: "mappedNotes",
     state() {
         return {
-            mappedNotes: [
-                {
+            mappedNotes: {
+                "C2": {
                     label: "808",
                     note: "C2",
                     filename: "808.wav",
+                    order: 0,
                 },
-                {
+                "D2": {
                     label: "Kick",
                     note: "D2",
                     filename: "Kick.wav",
+                    order: 1,
                 },
-                {
+                "E2": {
                     label: "Snare",
                     note: "E2",
                     filename: "Snare 1.wav",
+                    order: 2,
                 },
-                {
+                "F2": {
                     label: "Hat Closed",
                     note: "F2",
                     filename: "Hat Closer 1.wav",
+                    order: 3,
                 }
-            ],
+            },
         }
     },
     getters: {
         getMappingByNote: state => {
             return note => {
-                findMap(state, note);
+                return findMap(state, note);
             }
+        },
+        getMapsSortedByOrder: state => {
+            return sortBy(state.mappedNotes, 'order');
         }
     },
     actions: {
         removeMap(note) {
-            const filtered = this.mappedNotes = this.mappedNotes.filter(map => {
-                if (map.note !== note) {
-                    return map;
-                }
-            });
-
-            this.$state.mappedNotes = filtered;
+            mapExists(this.$state, note) && delete this.$state.mappedNotes[note];
         },
-        addMap(note, oldNote = '') {
-            // @FIXME: this removes and re-adds the map if the note is changed
-            // so it gets pushed to the end of the array
-            console.debug("addMap", note);
-            console.debug("old note: ", oldNote);
+        addMap(note, oldNote = '', map = {}) {
+            let newMap = {};
             
-            let oldMap = null;
-            
-            if (oldNote.length > 1) {
-                oldMap = findMap(this.$state, oldNote);
-                console.debug(oldMap);
-                
-                if (oldMap) {
-                    console.debug("found old map: ", oldMap.note, oldMap.filename);
-                    this.removeMap(oldNote);
-                }
+            // Lazy bail if the new note is already mapped to another sound
+            if (mapExists(this.$state, note)) {
+                console.debug(note + " already mapped to a sound. Ignoring.");
+                return;
             }
 
-            const label = oldMap?.label ?? 'New mapped';
-            const filename = oldMap?.filename ?? 'Hat Closer 1.wav';
+            if (mapExists(this.$state, oldNote)) {
+                newMap = findMap(this.$state, oldNote);
+                newMap.note = note;
+                this.removeMap(oldNote);
+            }
+            else {
+                newMap = map;
+                newMap.order = Object.keys(this.$state.mappedNotes).length;
+            }
 
-            const newMap = {
-                label: label,
-                note: note,
-                filename: filename,
-            };
-
-            this.$state.mappedNotes.push(newMap);
+            this.$state.mappedNotes[note] = newMap;
         }
     },
 });

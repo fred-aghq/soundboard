@@ -11,20 +11,12 @@ const useOnNoteOn = input => {
         console.debug("ON: " + note);
         activityStore.setActive(note);
 
-        let map = mappedNotesStore.mappedNotes.filter(map => {
-            if(map.note === note) {
-                return map;
-            }
-        });
+        let map = mappedNotesStore.getMappingByNote(note);
 
-        if (!map.length) {
-            return;
+        if (map !== undefined) {
+            map.filename && new Audio('/assets/sounds/' + map.filename)
+                .play();
         }
-
-        map = map[0];
-
-        map.filename && new Audio('/assets/sounds/' + map.filename)
-            .play();
     });
 
     input.addListener("noteoff", (e) => {
