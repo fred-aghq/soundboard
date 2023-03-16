@@ -56,9 +56,9 @@ const useMappedNotesStore = defineStore({
         removeMap(note) {
             mapExists(this.$state, note) && delete this.$state.mappedNotes[note];
         },
-        addMap(note, oldNote = '') {
+        addMap(note, oldNote = '', map = {}) {
             let newMap = {};
-
+            
             // Lazy bail if the new note is already mapped to another sound
             if (mapExists(this.$state, note)) {
                 console.debug(note + " already mapped to a sound. Ignoring.");
@@ -69,6 +69,10 @@ const useMappedNotesStore = defineStore({
                 newMap = findMap(this.$state, oldNote);
                 newMap.note = note;
                 this.removeMap(oldNote);
+            }
+            else {
+                newMap = map;
+                newMap.order = Object.keys(this.$state.mappedNotes).length;
             }
 
             this.$state.mappedNotes[note] = newMap;

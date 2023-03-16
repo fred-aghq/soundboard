@@ -16,6 +16,11 @@ const props = defineProps({
 const awaitingInput = ref(false);
 
 function learnInput(e) {
+    if ( awaitingInput.value === true) {
+        awaitingInput.value = false;
+        return;
+    }
+
     const { currentInput } = storeToRefs(useInputListStore());
     console.debug('Waiting to learn input', e);
     awaitingInput.value = true;
