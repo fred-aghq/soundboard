@@ -1,8 +1,7 @@
 import onNoteOn from "@/listeners/OnNoteOn.js";
 import { defineStore } from "pinia";
 import { WebMidi } from "webmidi";
-import useActivityStore from "./activityStore";
-import useOnNoteOn from "@/listeners/onNoteOn.js";
+import useActivityStore from "@/stores/activityStore";
 
 const setupInput = input => {
     onNoteOn(input);
