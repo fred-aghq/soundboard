@@ -10,10 +10,18 @@ const props = defineProps({
         type: String,
         required: false,
         default: null,
+    },
+    allowRemap: {
+        type: Boolean,
+        required: false,
+        default: true,
     }
 });
 
-const awaitingInput = ref(false);
+const awaitingInput = ref(false); 
+// @FIXME: more than one button can be awaiting input at once from a UI perspective.
+// functionally, the first button to be clicked will be the only one to map the input
+// so its not the worst thing in the world, but it would be nice to have a better solution.
 
 function learnInput(e) {
     if ( awaitingInput.value === true) {
@@ -35,10 +43,17 @@ function learnInput(e) {
 
     currentInput.value.addListener('noteon', learnInputHandler, { remaining: 1 });
 };
-
 </script>
+
 <template>
-    <button :class="{ 'dark: bg-red-800 bg-red-400': awaitingInput }" @click.prevent="learnInput">
+    <button 
+        :disabled="!allowRemap" 
+        :class="{ 
+            'dark:bg-red-800 bg-red-400': awaitingInput,
+            'dark:bg-gray-600 bg-gray-200': !allowRemap & !awaitingInput,
+            'dark:bg-yellow-600 bg-yellow-300': allowRemap & !awaitingInput
+        }" 
+        @click.prevent="learnInput">
         <slot></slot>
     </button>
 </template>
