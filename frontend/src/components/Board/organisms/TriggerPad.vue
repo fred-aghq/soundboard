@@ -2,6 +2,7 @@
 import useActivityStore from '@/stores/activityStore';
 import { storeToRefs } from 'pinia';
 import MidiLearnButton from '@/components/Board/molecules/MidiLearnButton.vue';
+import { useInputListStore } from '@/stores/inputListStore';
 
 defineProps({
     label: {
@@ -19,6 +20,7 @@ defineProps({
 });
 
 const { activeNote } = storeToRefs(useActivityStore());
+const { inputCount } = storeToRefs(useInputListStore());
 
 defineEmits(['removeSound']);
 
@@ -33,7 +35,7 @@ defineEmits(['removeSound']);
         <button>Play Sound</button>
     </div>
     <div class="grid grid-cols-2 divide-x">
-        <MidiLearnButton :currentMappedNote=note>
+        <MidiLearnButton :currentMappedNote=note :allowRemap="inputCount > 0">
             Map [{{  note }}]
         </MidiLearnButton>
         <button>
