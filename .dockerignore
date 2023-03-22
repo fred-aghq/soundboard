@@ -1,0 +1,9 @@
+# *
+
+# !/docker
+# !/frontend
+
+# **/*~
+# **/*.log
+# **/.DS_Store
+# **/Thumbs.db

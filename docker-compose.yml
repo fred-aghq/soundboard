@@ -1,0 +1,11 @@
+version: '3.7'
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: ./docker/frontend/Dockerfile
+    working_dir: /app
+    # volumes:
+    #   - ./frontend/dist:/usr/share/nginx/html:ro
+    ports:
+      - ${FRONTEND_PORT}:3000
